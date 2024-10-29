@@ -1,9 +1,12 @@
 import Layout from '../layout/primary'
+import './contact.less'
 
 export default function Contact() {
   return (
-  <Layout>
-    <div className="p-2">Hello from Contact Page!</div>
-  </Layout>
+  <div className="contact-page">
+    <Layout>
+      Hello from Contact Page!
+    </Layout>
+  </div>
   )
 }

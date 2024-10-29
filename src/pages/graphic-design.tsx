@@ -1,9 +1,12 @@
 import Layout from '../layout/primary'
+import 'graphic-design.less'
 
 export default function GraphicDesign() {
   return (
-  <Layout>
-    <div className="p-2">Hello from Graphic Design Page!</div>
-  </Layout>
+  <div className="graphic-design-page">
+    <Layout>
+      Hello from Graphic Design Page!
+    </Layout>
+  </div>
   )
 }

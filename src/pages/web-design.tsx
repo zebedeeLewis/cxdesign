@@ -1,9 +1,12 @@
 import Layout from '../layout/primary'
+import './web-design.less'
 
 export default function WebDesign() {
   return (
-  <Layout>
-    <div className="p-2">Hello from Web Design Page!</div>
-  </Layout>
+  <div className="web-design-page">
+    <Layout>
+      Hello from Web Design Page!
+    </Layout>
+  </div>
   )
 }

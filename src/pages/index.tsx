@@ -1,9 +1,12 @@
 import Layout from '../layout/primary'
+import './index.less'
 
 export default function Index() {
   return (
-  <Layout>
-    <div className="p-2"><h3>Welcome Home!</h3> </div>
-  </Layout>
+  <div className="home-page">
+    <Layout>
+      <h3>Welcome Home!</h3>
+    </Layout>
+  </div>
   )
 }

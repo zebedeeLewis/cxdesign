@@ -1,9 +1,12 @@
 import Layout from '../layout/primary'
+import './location.less'
 
 export default function Location() {
   return (
-  <Layout>
-    <div className="p-2">Hello from Location Page!</div>
-  </Layout>
+  <div className="location-page">
+    <Layout>
+      Hello from Location Page!
+    </Layout>
+  </div>
   )
 }

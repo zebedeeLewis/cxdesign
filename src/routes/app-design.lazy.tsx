@@ -1,9 +1,6 @@
 import { createLazyFileRoute } from '@tanstack/react-router'
+import AppDesign from '../pages/app-design'
 
 export const Route = createLazyFileRoute('/app-design')({
   component: AppDesign,
 })
-
-function AppDesign() {
-  return <div className="p-2">Hello from App Design!</div>
-}

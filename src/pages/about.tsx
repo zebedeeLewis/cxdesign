@@ -1,9 +1,12 @@
 import Layout from '../layout/primary'
+import './about.less'
 
 export default function About() {
   return (
-  <Layout>
-    <div className="p-2">Hello from About!</div>
-  </Layout>
+  <div className="about-page">
+    <Layout>
+        Hello from About!
+    </Layout>
+  </div>
   )
 }
