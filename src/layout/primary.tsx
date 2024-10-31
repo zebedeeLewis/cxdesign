@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react'
 import Navbar from '../components/navbar'
+import Footer from '../components/footer'
 import './primary.less'
 
 export default function Layout(props: PropsWithChildren) {
@@ -9,7 +10,7 @@ export default function Layout(props: PropsWithChildren) {
       <div className="content">
         {props.children}
       </div>
-      <footer>footer</footer>
+      <Footer />
     </div>
   )
 }
