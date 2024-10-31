@@ -2,8 +2,14 @@ import {useState} from 'react'
 import { Link } from '@tanstack/react-router'
 import './navbar.less'
 import logo from '../../assets/logo.svg'
-import hamburger from '../../assets/hamburger.svg'
+import collapsedSymbol from '../../assets/hamburger.svg'
 import close from '../../assets/close.svg'
+
+const navbarExpandedImageAlt
+  = "A \"hamburger\" symbol that is displayed when the navbar is expanded and hidden otherwise"
+const navbarCollapsedImageAlt
+  = "An \"x\" symbol that is displayed when the navbar is collapsed and hidden otherwise"
+const navbarLogoAlt = "This is a picture showing the company logo"
 
 export default function Navbar() {
   const [toggled, setToggled] = useState(false)
@@ -12,24 +18,20 @@ export default function Navbar() {
   return (
     <div className={`navbar navbar-${toggled?'toggled':''}`}>
       <nav className="navbar-header">
-        <Link to="/">
-          <div className="image-wrapper navbar-logo">
-            <img alt="logo" loading="lazy" src={logo} />
-          </div>
+        <Link className="navbar-logo" to="/">
+          <img src={logo} alt={navbarLogoAlt} loading="lazy" />
         </Link>
-        <button className="navbar-toggle" onClick={toggle} >
-          <div className="image-wrapper">
-            <img className="hamburger"
-              alt="navbar-hamburger"
-              loading="eager"
-              src={hamburger}
-            />
-            <img className="close"
-              alt="navbar-hamburger"
-              loading="eager"
-              src={close}
-            />
-          </div>
+        <button className="navbar-toggler" onClick={toggle} >
+          <img className="navbar-collapsedSymbol"
+            src={collapsedSymbol}
+            alt={navbarCollapsedImageAlt}
+            loading="eager"
+          />
+          <img className="navbar-expandedSymbol"
+            src={close}
+            alt={navbarExpandedImageAlt}
+            loading="eager"
+          />
         </button>
       </nav>
       <div className="navbar-body">
