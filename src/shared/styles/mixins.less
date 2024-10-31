@@ -3,3 +3,38 @@
 .medium-screen(@rules) {
   @media screen and (min-width: @medium-breakpoint) { @rules(); }
 }
+
+.large-screen(@rules) {
+  @media screen and (min-width: @large-breakpoint) { @rules(); }
+}
+
+/**
+ * Create a grid container for the contents of an element, consisting
+ * of a left and right margin and a main content area.
+ */
+.pageContainer() {
+  display: grid;
+  grid-template-columns:
+    minmax(@spacing * 6, 1fr)
+    minmax(auto, @max-page-width-md)
+    minmax(@spacing * 6, 1fr);
+
+  > * {
+    grid-column: 2 e("/") 3;
+  }
+
+  .medium-screen({
+    grid-template-columns:
+      minmax(@spacing * 10, 1fr)
+      minmax(auto, @max-page-width-lg)
+      minmax(@spacing * 10, 1fr);
+  });
+
+  .large-screen({
+    grid-template-columns:
+      minmax(@spacing * 41, 1fr)
+      minmax(auto, @max-page-width-xl)
+      minmax(@spacing * 41, 1fr);
+    });
+}
+

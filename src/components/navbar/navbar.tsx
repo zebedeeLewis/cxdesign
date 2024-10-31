@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import { Link } from '@tanstack/react-router'
 import './navbar.less'
-import logo from '../../assets/logo.svg'
+import logo from '../../assets/logo.png'
 import collapsedSymbol from '../../assets/hamburger.svg'
 import close from '../../assets/close.svg'
 

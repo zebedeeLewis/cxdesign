@@ -2,6 +2,8 @@
 @import "../../shared/styles/mixins.less";
 
 .navbar {
+  position: relative;
+  z-index: 4;
   width: 100%;
   display: flex;
 
@@ -117,6 +119,10 @@
 
     &:hover {
       text-decoration: underline;
+
+      &:before {
+        background-color: @primary-color;
+      }
     }
   })
 }
