@@ -1,10 +1,13 @@
 @import "../shared/styles/variables.less";
 @import "../shared/styles/mixins.less";
 
+:root {
+  --navTransitionDuration: @navbar-transition-duration;
+}
+
 * {
   box-sizing: border-box;
 }
-
 
 .fontStyles {
   .footer-card {
@@ -135,6 +138,10 @@
     color: @dark-grey;
     background-color: white;
   }
+}
+
+.page-wrapper {
+  position: relative;
 }
 
 .content {

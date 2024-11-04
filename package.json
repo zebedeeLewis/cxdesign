@@ -48,7 +48,7 @@
     "eslint-plugin-react": "7.35.0",
     "eslint-plugin-react-hooks": "5.0.0",
     "jsdom": "~22.1.0",
-    "less": "3.12.2",
+    "less": "^3.12.2",
     "nx": "20.0.6",
     "prettier": "^2.6.2",
     "tslib": "^2.3.0",

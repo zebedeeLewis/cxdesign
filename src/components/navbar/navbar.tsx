@@ -1,46 +1,67 @@
-import {useState} from 'react'
+import {useState, useRef} from 'react'
 import { Link } from '@tanstack/react-router'
 import './navbar.less'
 import logo from '../../assets/logo.png'
 import collapsedSymbol from '../../assets/hamburger.svg'
 import close from '../../assets/close.svg'
 
-const navbarExpandedImageAlt
-  = "A \"hamburger\" symbol that is displayed when the navbar is expanded and hidden otherwise"
-const navbarCollapsedImageAlt
-  = "An \"x\" symbol that is displayed when the navbar is collapsed and hidden otherwise"
-const navbarLogoAlt = "This is a picture showing the company logo"
+type navListState 
+  = "Hidden"
+  | "Transitioning"
+  | "Toggled"
+
+const navListExpandedImageAlt = "open navigation list"
+const navListCollapsedImageAlt = "close navigation list"
+const navListLogoAlt = "home"
 
 export default function Navbar() {
-  const [toggled, setToggled] = useState(false)
-  const toggle = ()=>setToggled(!toggled)
+  const [navListState, setnavListState] = useState<navListState>("Hidden")
+  const selfRef = useRef<HTMLElement>()
+
+  const navListTransitionDuration
+    = selfRef?.current
+      ? Number(getComputedStyle(selfRef.current).getPropertyValue('--navTransitionDuration'))
+      : 200 
+
+  const handleTogglerClick = ()=> {
+    const prevState = navListState
+    setnavListState("Transitioning")
+
+    setTimeout(()=>{ setnavListState(prevState === "Hidden"?"Toggled":"Hidden") },
+      navListTransitionDuration)
+  }
 
   return (
-    <div className={`navbar navbar-${toggled?'toggled':''}`}>
-      <nav className="navbar-header">
-        <Link className="navbar-logo" to="/">
-          <img src={logo} alt={navbarLogoAlt} loading="lazy" />
-        </Link>
-        <button className="navbar-toggler" onClick={toggle} >
-          <img className="navbar-collapsedSymbol"
-            src={collapsedSymbol}
-            alt={navbarCollapsedImageAlt}
-            loading="eager"
-          />
-          <img className="navbar-expandedSymbol"
-            src={close}
-            alt={navbarExpandedImageAlt}
-            loading="eager"
-          />
-        </button>
-      </nav>
-      <div className="navbar-body">
-        <nav className="navbar-body-inner">
-          <Link to="/about" className="nav-link">Our Company</Link>
-          <Link to="/location" className="nav-link">Locations</Link>
-          <Link to="/contact" className="nav-link">Contact</Link>
-        </nav>
-      </div>
-    </div>
+    <nav className={`navbar navbar--navList${navListState}`}>
+      <button className="navList-toggler" onClick={handleTogglerClick} >
+        <img className="navList-collapsedSymbol"
+          src={collapsedSymbol}
+          alt={navListCollapsedImageAlt}
+          loading="eager"
+        />
+        <img className="navList-expandedSymbol"
+          src={close}
+          alt={navListExpandedImageAlt}
+          loading="eager"
+        />
+      </button>
+
+      <ul className="navList">
+        <li className="navList-item-logo">
+          <Link className="navList-link-logo" to="/">
+            <img src={logo} alt={navListLogoAlt} loading="lazy" />
+          </Link>
+        </li>
+        <li className="navList-item-first">
+          <Link className="navList-link" to="/about">Our Company</Link>
+        </li>
+        <li className="navList-item">
+          <Link className="navList-link" to="/location">Locations</Link>
+        </li>
+        <li className="navList-item">
+          <Link className="navList-link" to="/contact">Contact</Link>
+        </li>
+      </ul>
+    </nav>
   )
 }

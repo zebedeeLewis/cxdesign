@@ -1,5 +1,5 @@
 import Layout from '../layout/primary'
-import 'graphic-design.less'
+import './graphic-design.less'
 
 export default function GraphicDesign() {
   return (
