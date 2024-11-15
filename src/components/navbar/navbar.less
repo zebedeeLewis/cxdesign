@@ -29,21 +29,12 @@
 
     /** COLOR AND IMAGERY STYLES **/
     background-color: @black;
-    opacity: 0%;
     transition: opacity calc(var(--navTransitionDuration)*1ms) linear;
   }
 
   .navList-collapsedSymbol { display: block; }
   .navList-expandedSymbol { display: none; }
   .navList-items { left: -100vw; }
-
-  &--navListTransitioning {
-    .navList-collapsedSymbol { display: none; }
-    .navList-expandedSymbol { display: block; }
-    .navList-item { display: block; }
-
-    &:before { opacity: 55%; }
-  }
 
   &--navListToggled {
     .navList-item {
@@ -59,8 +50,24 @@
     }
   }
 
+  &--navListTransitioning {
+    .navList-collapsedSymbol { display: none; }
+    .navList-expandedSymbol { display: block; }
+    .navList-item { display: block; }
+
+    &:before {
+      opacity: 0%;
+    }
+  }
+
   &--navListHidden {
-    .navList-item { display: none; }
+    .navList-item {
+      display: none;
+    }
+
+    &:before {
+      display: none;
+    }
   }
 
   @container navbar (width >= @medium-breakpoint) {

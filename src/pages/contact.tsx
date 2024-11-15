@@ -1,12 +1,9 @@
 import Layout from '../layout/primary'
 import './contact.less'
 
-export default function Contact() {
-  return (
-  <div className="contact-page">
-    <Layout>
-      Hello from Contact Page!
-    </Layout>
-  </div>
-  )
-}
+const Contact = () =>
+  <Layout pageName="contact-page">
+    Hello from Contact Page!
+  </Layout>
+
+export default Contact

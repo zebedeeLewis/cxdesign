@@ -1,12 +1,9 @@
 import Layout from '../layout/primary'
 import './web-design.less'
 
-export default function WebDesign() {
-  return (
-  <div className="web-design-page">
-    <Layout>
-      Hello from Web Design Page!
-    </Layout>
-  </div>
-  )
-}
+const WebDesign = () =>
+  <Layout pageName="web-design-page">
+    Hello from Web Design Page!
+  </Layout>
+
+export default WebDesign

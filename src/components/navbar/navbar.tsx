@@ -1,4 +1,4 @@
-import {useState, useRef} from 'react'
+import {useState } from 'react'
 import { Link } from '@tanstack/react-router'
 import './navbar.less'
 import logo from '../../assets/logo.png'
@@ -15,19 +15,18 @@ const navListCollapsedImageAlt = "close navigation list"
 const navListLogoAlt = "home"
 
 export default function Navbar() {
-  const [navListState, setnavListState] = useState<navListState>("Hidden")
-  const selfRef = useRef<HTMLElement>()
+  const [navListState, setNavListState] = useState<navListState>("Hidden")
 
   const navListTransitionDuration
-    = selfRef?.current
-      ? Number(getComputedStyle(selfRef.current).getPropertyValue('--navTransitionDuration'))
-      : 200 
+    = Number(
+      getComputedStyle(document.documentElement)
+      .getPropertyValue('--navTransitionDuration'))
 
   const handleTogglerClick = ()=> {
     const prevState = navListState
-    setnavListState("Transitioning")
+    setNavListState("Transitioning")
 
-    setTimeout(()=>{ setnavListState(prevState === "Hidden"?"Toggled":"Hidden") },
+    setTimeout(()=>{ setNavListState(prevState === "Hidden"?"Toggled":"Hidden") },
       navListTransitionDuration)
   }
 

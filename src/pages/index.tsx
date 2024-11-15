@@ -1,12 +1,9 @@
 import Layout from '../layout/primary'
 import './index.less'
 
-export default function Index() {
-  return (
-  <div className="home-page">
-    <Layout>
-      <h3>Welcome Home!</h3>
-    </Layout>
-  </div>
-  )
-}
+const Index = () =>
+  <Layout pageName="home-page">
+    <h3>Welcome Home!</h3>
+  </Layout>
+
+export default Index

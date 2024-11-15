@@ -1,12 +1,9 @@
 import Layout from '../layout/primary'
 import './about.less'
 
-export default function About() {
-  return (
-  <div className="about-page">
-    <Layout>
-        Hello from About!
-    </Layout>
-  </div>
-  )
-}
+const About = () =>
+  <Layout pageName="about-page">
+    Hello from About!
+  </Layout>
+
+export default About
