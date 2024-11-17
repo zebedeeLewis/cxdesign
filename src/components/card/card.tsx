@@ -1,4 +1,4 @@
-import {FunctionComponent} from 'react'
+import {FunctionComponent, useRef} from 'react'
 
 export interface CardContent
   { heading: string
@@ -7,6 +7,12 @@ export interface CardContent
   }
 
 export const Card:FunctionComponent<{content:CardContent}>
-= ({content:{heading}}) => <>
-  {heading}
-</>
+= ({content:{heading, image, summary}}) => {
+  const cardRef = useRef(null)
+
+  return <div ref={cardRef} className="portfolioCard">
+    <h2 className="portfolioCard-heading">{heading}</h2>
+    {image}
+    <p className="portfolioCard-summary">{summary}</p>
+  </div>
+}
