@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react'
 import { Link } from '@tanstack/react-router'
 import { Card, CardContent } from '../components/card'
+import './_service-page-content.less'
 
 export interface PageContent
   { heading: string
