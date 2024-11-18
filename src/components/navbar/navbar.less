@@ -72,8 +72,6 @@
 
   @container navbar (width >= @medium-breakpoint) {
     .navbar {
-      height: auto;
-
       &:before { content: none; }
 
       &--navListToggled,
@@ -230,3 +228,10 @@
     width: 100%;
   }
 }
+
+@media screen and (min-width: @medium-breakpoint) {
+  .navbar {
+    height: @spacing * 40;
+  }
+}
+
