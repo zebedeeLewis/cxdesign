@@ -1,0 +1,84 @@
+@import "../../shared/styles/variables.less";
+@import "../../shared/styles/mixins.less";
+
+.portfolioCard {
+  container-type: inline-size;
+  container-name: card;
+
+  text-align: center;
+
+  display: grid;
+  margin: 0 8px;
+  overflow: hidden;
+  border-radius: 15px;
+
+  grid-template-columns: 1fr 1fr;
+
+  background-color: #FDF3F0;
+
+  &:before {
+    content: "";
+
+    display: block;
+    width: 100%;
+    height: @spacing * 80;
+
+    grid-column: 1 e("/") end;
+
+    background-image: var(--background-image);
+    background-color: var(--background-color);
+    background-position: center (@spacing * 2);
+    background-repeat: no-repeat;
+  }
+
+  @container card (width >= 480px) {
+    .portfolioCard {
+      &:before {
+        grid-column: 1 e("/") 2;
+        grid-row: 1 e("/") 3;
+      }
+    }
+  }
+}
+
+.portfolioCard-heading {
+  font-size: @h3-font-size;
+  font-weight: 500;
+  line-height: @h3-line-height;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+
+  margin-top: @spacing * 8;
+
+  grid-column: 1 e("/") end;
+
+  color: @primary-color;
+
+  @container card (width >= 480px) {
+    .portfolioCard-heading {
+      grid-column: 2 e("/") 3;
+      grid-row: 1 e("/") 2;
+      align-self: end;
+    }
+  }
+}
+
+.portfolioCard-summary {
+  line-height: 26px;
+
+  margin-top: @spacing * 4;
+  margin-bottom: @spacing * 6;
+  padding: 0 (@spacing * 6);
+
+  grid-column: 1 e("/") end;
+
+  color: @dark-grey;
+
+  @container card (width >= 480px) {
+    .portfolioCard-summary {
+      grid-column: 2 e("/") 3;
+      grid-row: 2 e("/") 3;
+      align-self: start;
+    }
+  }
+}
