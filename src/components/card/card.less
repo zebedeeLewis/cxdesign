@@ -15,6 +15,14 @@
 
   background-color: #FDF3F0;
 
+  .portfolioCard-heading {
+    color: @primary-color;
+  }
+
+  .portfolioCard-summary {
+    color: @dark-grey;
+  }
+
   &:before {
     content: "";
 
@@ -28,6 +36,19 @@
     background-color: var(--background-color);
     background-position: center (@spacing * 2);
     background-repeat: no-repeat;
+  }
+
+  &:active,
+  &:hover {
+    background-color: @primary-color;
+
+    .portfolioCard-heading {
+      color: white;
+    }
+
+    .portfolioCard-summary {
+      color: white;
+    }
   }
 
   @container card (width >= 480px) {
@@ -51,8 +72,6 @@
 
   grid-column: 1 e("/") end;
 
-  color: @primary-color;
-
   @container card (width >= 480px) {
     .portfolioCard-heading {
       grid-column: 2 e("/") 3;
@@ -70,8 +89,6 @@
   padding: 0 (@spacing * 6);
 
   grid-column: 1 e("/") end;
-
-  color: @dark-grey;
 
   @container card (width >= 480px) {
     .portfolioCard-summary {
