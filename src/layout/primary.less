@@ -9,18 +9,30 @@
   box-sizing: border-box;
 }
 
+.page-wrapper {
+  display: flex;
+  overflow: hidden;
+
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+
 .footer-card {
+  overflow: hidden;
+
   text-align: center;
   font-size: 15px;
   line-height: @spacing * 7;
 
-  z-index: 2;
-
+  height: fit-content;
   padding-top: @spacing * 15;
   padding-bottom: @spacing * 15;
   padding-left: @viewport-horizontal-margin-sm;
   padding-right: @viewport-horizontal-margin-sm;
   border-radius: 15px;
+
+  z-index: 2;
 
   background: url("../../assets/fading-circles.png"), @primary-color;
   background-position: center;
@@ -42,11 +54,15 @@
     line-height: @spacing * 6;
   }
 
+  .backgroundPatternA(@top: -100px, @left:-70%);
+
   .medium-screen({
     font-size: 16px;
 
     padding-left: @spacing * 42;
     padding-right: @spacing * 42;
+
+    .showBackgroundPatternA(@left:-15%);
 
     h2 {
       font-size: 40px;
@@ -64,6 +80,8 @@
     padding-left: @spacing * 21;
     padding-right: @spacing * 21;
 
+    .showBackgroundPatternA(@left:20%);
+
     p, h2 {
       grid-column: 1 e("/") 2;
     }
@@ -79,8 +97,15 @@
   padding: @spacing * 4;
   border-radius: 8px;
 
+  z-index: 2;
+
   color: @dark-grey;
   background-color: white;
+
+  &:active, &:hover {
+    color: white;
+    background-color: @secondary-color;
+  }
 
   .large-screen({
     grid-column: 2 e("/") 3;

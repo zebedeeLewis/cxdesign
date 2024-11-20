@@ -42,7 +42,7 @@ const content: PageContent =
   }
 
 const AppDesign = () =>
-  <Layout pageName="app-design-page">
+  <Layout pageName="appDesignPage">
     <ServicePageContent {...{content}} />
   </Layout>
 

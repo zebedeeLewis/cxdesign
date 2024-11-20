@@ -1,7 +1,260 @@
 @import "../shared/styles/variables.less";
 @import "../shared/styles/mixins.less";
 
+.header,
 .portfolio,
-.service-pages {
+.servicePages {
   .pageContainer();
+
+  margin-bottom: @spacing * 24;
+
+  @media screen and (min-width: @medium-breakpoint) {
+    margin-bottom: @spacing * 30;
+  }
+
+  @media screen and (min-width: @large-breakpoint) {
+    margin-bottom: @spacing * 40;
+  }
+}
+
+.header {
+  color: white;
+  text-align: center;
+
+  &:before {
+    content: "";
+
+    display: block;
+    height: @spacing * 78;
+
+
+    grid-column: 1 e("/") end;
+    grid-row: 1 e("/") 3;
+
+    background-color: @primary-color;
+  }
+
+  h1 {
+    font-size: 32px;
+    line-height: 36px;
+    font-weight: 500;
+    text-transform: capitalize;
+
+    margin-bottom: @spacing * 6;
+
+    grid-row: 1 e("/") 2;
+    align-self: end;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 25px;
+
+    grid-row: 2 e("/") 3;
+    align-self: start;
+  }
+
+  .backgroundPatternB(@top: 0, @left: -65%);
+
+  @media screen and (min-width: 543px) {
+    &:before {
+      grid-column: 2 e("/") 3;
+
+      height: @spacing * 62;
+
+      border-radius: 15px;
+    }
+
+    h1,
+    p {
+      max-width: 350px;
+      justify-self: center;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 48px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    position: relative;
+
+    .showBackgroundPatternB(@left:0, @top: -175px);
+
+    &:after {
+      width: 100%;
+      grid-column: 2 e("/") 3;
+    }
+  }
+
+  @media screen and (min-width: @medium-breakpoint) {
+    overflow: hidden;
+    .showBackgroundPatternB(@rotateX: 180deg);
+
+    &:before {
+      background-position: right 418px;
+    }
+  }
+
+  @media screen and (min-width: @large-breakpoint) {
+    overflow: visible;
+    .showBackgroundPatternB(@top: -166px, @left: -8%, @rotateX: 0deg, @width: 900px);
+  }
+}
+
+.portfolio {
+  position: relative;
+
+  @media screen and (min-width: @large-breakpoint) {
+    &:before {
+      content: "";
+
+      width: 100%;
+      height: 900px;
+
+      grid-column: 2 e("/") 3;
+      position: absolute;
+      left: -20%;
+      top: -275px;
+      z-index: -1;
+
+      background-image: url(/src/assets/teardrop.png);
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.portfolioList {
+  display: grid;
+  grid-template-columns: subgrid;
+  gap: @spacing * 10;
+
+  @media screen and (min-width: @large-breakpoint) {
+    display: flex;
+    flex-wrap: wrap;
+
+    &:before {
+      content: "";
+      display: block;
+      height: 0;
+      flex: 1 1 30%;
+      order: 2;
+    }
+  }
+}
+
+.portfolioList-item {
+  @media screen and (min-width: @large-breakpoint) {
+    flex: 1 1 30%;
+  }
+}
+
+.servicePagesList {
+  display: flex;
+  flex-direction: column;
+  row-gap: @spacing * 6;
+
+  @media screen and (min-width: @large-breakpoint) {
+    flex-direction: row;
+    column-gap: @spacing * 6;
+  }
+}
+
+.servicePageItem {
+  @media screen and (min-width: @large-breakpoint) {
+    flex: 1 1 50%;
+  }
+}
+
+.appDesignPage .servicePageItem-appDesign { display: none; }
+.webDesignPage .servicePageItem-webDesign { display: none; }
+.graphicDesignPage .servicePageItem-graphicDesign { display: none; }
+
+.servicePageLink {
+  border-radius: 15px;
+  overflow: hidden;
+
+  line-height: 36px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: @spacing * 62;
+
+  position: relative;
+  justify-content: center;
+  align-items: center;
+
+  background-position: bottom right;
+  color: white;
+
+  &:before {
+    content: "";
+
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    z-index: 1;
+
+    background-color: black;
+    opacity: 50%;
+  }
+
+  &:hover,
+  &:active {
+    &:before {
+      background-color: @primary-color;
+      opacity: 60%;
+    }
+  }
+
+  @media screen and (min-width: @medium-breakpoint) {
+    height: @spacing * 50;
+  }
+
+  @media screen and (min-width: @large-breakpoint) {
+    height: @spacing * 80;
+  }
+}
+
+.servicePageLink-pageName,
+.servicePageLink-callToAction {
+  z-index: 2;
+}
+
+.servicePageLink-pageName {
+  font-size: 28px;
+
+  @media screen and (min-width: @medium-breakpoint) {
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    line-height: 48px;
+
+    margin-bottom: @spacing * 5;
+  }
+}
+
+.servicePageLink-callToAction {
+  letter-spacing: 5px;
+}
+
+.servicePageItem-webDesign .servicePageLink {
+  background-image: url("../assets/web-design-background.jpg");
+}
+
+.servicePageItem-appDesign .servicePageLink {
+  background-image: url("../assets/app-design-background.jpg");
+}
+
+.servicePageItem-graphicDesign .servicePageLink {
+  background-image: url("../assets/graphic-design-background.jpg");
 }

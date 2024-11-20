@@ -14,9 +14,11 @@
  */
 .pageContainer() {
   display: grid;
+  width: 100%;
+
   grid-template-columns:
     minmax(@spacing * 6, 1fr)
-    minmax(auto, @max-page-width-md)
+    minmax(auto, @max-content-width-md)
     minmax(@spacing * 6, 1fr);
 
   > * {
@@ -26,15 +28,138 @@
   .medium-screen({
     grid-template-columns:
       minmax(@spacing * 10, 1fr)
-      minmax(auto, @max-page-width-lg)
+      minmax(auto, @max-content-width-lg)
       minmax(@spacing * 10, 1fr);
   });
 
   .large-screen({
     grid-template-columns:
       minmax(@spacing * 41, 1fr)
-      minmax(auto, @max-page-width-xl)
+      minmax(auto, @max-content-width-xl)
       minmax(@spacing * 41, 1fr);
     });
+}
+
+.backgroundPatternA(
+  @top:88px,
+  @left:unset,
+  @rotateX: 0,
+) {
+  position: relative;
+
+  &:before {
+    content: "";
+
+    display: block;
+    width: 900px;
+    height: 602px;
+
+    position: absolute;
+    top: @top;
+    left: @left;
+
+    transform: rotateX(@rotateX);
+    background:
+      no-repeat left 600px top 0px url("/src/assets/oval-single.png"),
+      no-repeat left 308px top 0px url("/src/assets/oval-single.png"),
+
+      no-repeat left 600px top 310px url("/src/assets/oval-single.png"),
+      no-repeat left 308px top 310px url("/src/assets/oval-single.png"),
+      no-repeat left 15px  top 310px url("/src/assets/oval-single.png");
+  }
+}
+
+.backgroundPatternB(
+  @top:88px,
+  @left:unset,
+  @rotateX: 0,
+) {
+  position: relative;
+
+  &:after {
+    content: "";
+
+    display: block;
+    width: 900px;
+    height: 602px;
+
+    position: absolute;
+    top: @top;
+    left: @left;
+
+    transform: rotateX(@rotateX);
+
+    background:
+      no-repeat left 600px top 0px url("/src/assets/oval-single.png"),
+      no-repeat left 308px top 0px url("/src/assets/oval-single.png"),
+
+      no-repeat left 600px top 310px url("/src/assets/oval-single.png"),
+      no-repeat left 308px top 310px url("/src/assets/oval-single.png"),
+      no-repeat left 15px  top 310px url("/src/assets/oval-single.png");
+  }
+}
+
+.hideBackgroundPatternA {
+  &:before {
+    content: none;
+  }
+}
+
+.hideBackgroundPatternB {
+  &:after {
+    content: none;
+  }
+}
+
+.showBackgroundPatternA(
+  @top:unchanged,
+  @left:unchanged,
+  @rotateX: unchanged,
+  @width: unchanged,
+){
+  &:before {
+    content: "";
+    & when (not(@top = unchanged)) {
+      top: @top;
+    }
+
+    & when (not(@left = unchanged)) {
+      left: @left;
+    }
+
+    & when (not(@rotateX = unchanged)) {
+      transform: rotateX(@rotateX);
+    }
+
+    & when (not(@width = unchanged)) {
+      width: @width;
+    }
+  }
+}
+
+.showBackgroundPatternB(
+  @top:unchanged,
+  @left:unchanged,
+  @rotateX: unchanged,
+  @width: unchanged,
+){
+  &:after {
+    content: "";
+    & when (not(@top = unchanged)) {
+      top: @top;
+    }
+
+    & when (not(@left = unchanged)) {
+      left: @left;
+    }
+
+    & when (not(@rotateX = unchanged)) {
+      transform: rotateX(@rotateX);
+    }
+
+    & when (not(@width = unchanged)) {
+      width: @width;
+    }
+  }
 }
 

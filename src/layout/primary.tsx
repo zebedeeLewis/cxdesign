@@ -2,6 +2,8 @@ import { Link } from '@tanstack/react-router'
 import { PropsWithChildren, FunctionComponent } from 'react'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
+
+import oval from '../assets/Oval.png'
 import './primary.less'
 
 const Layout:FunctionComponent<PropsWithChildren<{pageName:string}>>

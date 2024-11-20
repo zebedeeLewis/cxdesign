@@ -21,22 +21,25 @@ export const ServicePageContent:FunctionComponent<{content:PageContent}>
         <li key={i} className="portfolioList-item"><Card {...{content}} /></li>)}
     </ul>
   </section>
-  <section className="service-pages">
+  <section className="servicePages">
     <nav>
       <ul className="servicePagesList">
-        <li className="servicePageItem">
+        <li className="servicePageItem servicePageItem-appDesign">
           <Link className="servicePageLink" to="/app-design">
-            app design
+            <div className="servicePageLink-pageName">app design</div>
+            <div className="servicePageLink-callToAction">view projects</div>
           </Link>
         </li>
-        <li className="servicePageItem">
+        <li className="servicePageItem servicePageItem-webDesign">
           <Link className="servicePageLink" to="/web-design">
-            graphic design
+            <div className="servicePageLink-pageName">web design</div>
+            <div className="servicePageLink-callToAction">view projects</div>
           </Link>
         </li>
-        <li className="servicePageItem">
+        <li className="servicePageItem servicePageItem-graphicDesign">
           <Link className="servicePageLink" to="/graphic-design">
-            graphic design
+            <div className="servicePageLink-pageName">graphic design</div>
+            <div className="servicePageLink-callToAction">view projects</div>
           </Link>
         </li>
       </ul>

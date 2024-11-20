@@ -64,7 +64,7 @@
   .medium-screen({
     grid-template-columns:
       minmax(@spacing * 10, 1fr)
-      repeat(3, minmax(auto, @max-page-width-lg/3))
+      repeat(3, minmax(auto, @max-content-width-lg/3))
       minmax(@spacing * 10, 1fr);
     grid-template-areas:
       " . nav      nav      nav      ."
@@ -108,7 +108,7 @@
   .large-screen({
     grid-template-columns:
       minmax(@spacing * 41, 1fr)
-      repeat(3, minmax(auto, @max-page-width-xl/3))
+      repeat(3, minmax(auto, @max-content-width-xl/3))
       minmax(@spacing * 41, 1fr);
   });
 }
