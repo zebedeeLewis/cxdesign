@@ -1,0 +1,103 @@
+@import "../../shared/styles/variables.less";
+@import "../../shared/styles/mixins.less";
+
+.servicePagesList {
+  display: grid;
+  row-gap: @spacing * 6;
+
+  @media screen and (min-width: @large-breakpoint) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: @spacing * 6;
+  }
+}
+
+.servicePageItem {
+  @media screen and (min-width: @large-breakpoint) {
+    &:nth-last-child(3) {
+      grid-column: 1 e("/") 2;
+      grid-row: 1 e("/") 3;
+    }
+
+    &:nth-last-child(3) .servicePageLink {
+      display: flex;
+      height: 100%;
+    }
+  }
+}
+
+.servicePageLink {
+  border-radius: 15px;
+  overflow: hidden;
+
+  line-height: 36px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: @spacing * 62;
+
+  position: relative;
+  justify-content: center;
+  align-items: center;
+
+  background-image: var(--background-image);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: cover;
+  color: white;
+
+  &:before {
+    content: "";
+
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    z-index: 1;
+
+    background-color: black;
+    opacity: 50%;
+  }
+
+  &:hover,
+  &:active {
+    &:before {
+      background-color: @primary-color;
+      opacity: 60%;
+    }
+  }
+
+  @media screen and (min-width: @medium-breakpoint) {
+    height: @spacing * 50;
+  }
+
+  @media screen and (min-width: @large-breakpoint) {
+    height: @spacing * 80;
+  }
+}
+
+.servicePageLink-pageTitle,
+.servicePageLink-callToAction {
+  z-index: 2;
+}
+
+.servicePageLink-pageTitle {
+  font-size: 28px;
+
+  @media screen and (min-width: @medium-breakpoint) {
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    line-height: 48px;
+
+    margin-bottom: @spacing * 5;
+  }
+}
+
+.servicePageLink-callToAction {
+  letter-spacing: 5px;
+}
