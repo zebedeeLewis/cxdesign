@@ -11,6 +11,7 @@ import airfilterHeaderImage from '../assets/airfilter-header-image.png'
 
 const content: PageContent =
   { heading: "app design"
+  , currentPage: "appDesign"
   , headline: "out mobile designs bring intuitive digital solutions to your customers right at their fingertips."
   , portfolio:
     [ { heading: "airfilter"
@@ -42,7 +43,7 @@ const content: PageContent =
   }
 
 const AppDesign = () =>
-  <Layout pageName="appDesignPage">
+  <Layout pageName={content.currentPage}>
     <ServicePageContent {...{content}} />
   </Layout>
 
