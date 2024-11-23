@@ -12,6 +12,7 @@ import campHeaderImage from '../assets/camp-header-image.png'
 
 const content: PageContent =
   { heading: "Web Design"
+  , currentPage: "webDesign"
   , headline: "We build websites that serve as powerful marketing tools and bring memorable brand experiences."
   , portfolio:
     [ { heading: "Express"
@@ -48,7 +49,7 @@ const content: PageContent =
   }
 
 const WebDesign = () =>
-  <Layout pageName="webDesignPage">
+  <Layout pageName={content.currentPage}>
     <ServicePageContent {...{content}} />
   </Layout>
 
