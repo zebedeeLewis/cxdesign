@@ -1,16 +1,22 @@
 import { FunctionComponent } from 'react'
-import { Link } from '@tanstack/react-router'
 import { Card, CardContent } from '../components/card'
+import { ServiceList } from '../components/service-list'
+
+import webDesignImage from "../assets/web-design-background.jpg"
+import appDesignImage from "../assets/app-design-background.jpg"
+import graphicDesignImage from "../assets/graphic-design-background.jpg"
+
 import './_service-page-content.less'
 
 export interface PageContent
   { heading: string
   , headline: string
   , portfolio: Array<CardContent>
+  , currentPage: string
   }
 
 export const ServicePageContent:FunctionComponent<{content:PageContent}>
-= ({content: {portfolio, heading, headline}}) => <>
+= ({content: {portfolio, heading, headline, currentPage}}) => <>
   <header className="header">
     <h1>{heading}</h1>
     <p>{headline}</p>
@@ -22,27 +28,23 @@ export const ServicePageContent:FunctionComponent<{content:PageContent}>
     </ul>
   </section>
   <section className="servicePages">
-    <nav>
-      <ul className="servicePagesList">
-        <li className="servicePageItem servicePageItem-appDesign">
-          <Link className="servicePageLink" to="/app-design">
-            <div className="servicePageLink-pageName">app design</div>
-            <div className="servicePageLink-callToAction">view projects</div>
-          </Link>
-        </li>
-        <li className="servicePageItem servicePageItem-webDesign">
-          <Link className="servicePageLink" to="/web-design">
-            <div className="servicePageLink-pageName">web design</div>
-            <div className="servicePageLink-callToAction">view projects</div>
-          </Link>
-        </li>
-        <li className="servicePageItem servicePageItem-graphicDesign">
-          <Link className="servicePageLink" to="/graphic-design">
-            <div className="servicePageLink-pageName">graphic design</div>
-            <div className="servicePageLink-callToAction">view projects</div>
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <ServiceList services={
+      [ { pageName: "appDesign"
+        , pageAddress: "/app-design"
+        , image: appDesignImage
+        , pageTitle: "app design"
+        , }
+      , { pageName: "webDesign"
+        , pageAddress: "/web-design"
+        , image: webDesignImage
+        , pageTitle: "web design"
+        , }
+      , { pageName: "graphicDesign"
+        , pageAddress: "/graphic-design"
+        , image: graphicDesignImage
+        , pageTitle: "graphic design"
+        , }
+      , ].filter(({pageName}) => pageName !== currentPage)
+    }/>
   </section>
 </>
