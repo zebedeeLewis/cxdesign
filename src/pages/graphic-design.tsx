@@ -9,6 +9,7 @@ import scienceHeaderImage from '../assets/science-header-image.png'
 
 const content: PageContent =
   { heading: "graphic design"
+  , currentPage: "graphicDesign"
   , headline: "We deliver eye-catching branding materials that are tailored to meet your business objectives."
   , portfolio:
     [ { heading: "Tim Brown"
@@ -30,7 +31,7 @@ const content: PageContent =
   }
 
 const GraphicDesign = () =>
-  <Layout pageName="graphicDesignPage">
+  <Layout pageName={content.currentPage}>
     <ServicePageContent {...{content}} />
   </Layout>
 
