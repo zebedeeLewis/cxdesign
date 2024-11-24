@@ -1,4 +1,224 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../shared/styles/variables.less";
+@import "../shared/styles/mixins.less";
 
 .home-page {
+  .homePageHeader,
+  .companyTraits,
+  .servicePages {
+    .pageContainer();
+
+    margin-bottom: @spacing * 24;
+
+    @media screen and (min-width: @medium-breakpoint) {
+      margin-bottom: @spacing * 30;
+    }
+
+    @media screen and (min-width: @large-breakpoint) {
+      margin-bottom: @spacing * 40;
+    }
+  }
+
+  .homePageHeader {
+    font-size: 15px;
+    text-align: center;
+
+    grid-template-rows: auto auto auto auto;
+
+    background-color: @primary-color;
+    background-image: url("/src/assets/oval-large-1.svg");
+    background-repeat: no-repeat;
+    background-position: center left;
+
+    color: white;
+
+    &:after {
+      content: "";
+
+      display: block;
+      width: 100%;
+      max-width: 388px;
+      height: 470px;
+
+      grid-row: 4 e("/") end;
+      grid-column: 1 e("/") end;
+      justify-self: center;
+
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: var(--image);
+      background-position: bottom left;
+    }
+
+    @media screen and (min-width: @medium-breakpoint) {
+      padding-top: 0;
+
+      background-color: transparent;
+      background-image: none;
+
+      &:before {
+        border-radius: 15px;
+
+        content: "";
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        grid-column: 2 e("/") 3;
+        grid-row: 1 e("/") 6;
+
+        background-color: @primary-color;
+        background-image: url("/src/assets/oval-large-1.svg");
+        background-repeat: no-repeat;
+        background-position: left 160px center;
+      }
+    }
+
+    @media screen and (min-width: @large-breakpoint) {
+      text-align: left;
+
+      grid-template-columns:
+        minmax(164px, 1fr)
+        minmax(auto, 550px)
+        minmax(auto, 550px)
+        minmax(164px, 1fr);
+
+      &:before {
+        grid-row: 1 e("/") 4;
+        grid-column: 2 e("/") 4;
+
+        background-position: right top;
+      }
+
+      &:after {
+        grid-column: 3 e("/") 4;
+        grid-row: 1 e("/") 4;
+        align-self: end;
+      }
+
+    }
+  }
+
+  .contentCard-heading,
+  .contentCard-content,
+  .contentCard-cta {
+    @media screen and (min-width: @large-breakpoint) {
+      margin-left: 95px;
+    }
+  }
+
+  .contentCard-heading {
+    font-size: 32px;
+    line-height: 36px;
+    font-weight: 500;
+
+    padding-top: 85px;
+    max-width: 500px;
+    margin-bottom: 34px;
+
+    grid-row: 1 e("/") 2;
+    justify-self: center;
+
+    @media screen and (min-width: @medium-breakpoint) {
+      font-size: 48px;
+      line-height: 48px;
+      
+      max-width: 600px;
+      padding-top: 70px;
+    }
+
+    @media screen and (min-width: @large-breakpoint) {
+      padding-top: 155px;
+      justify-self: left;
+    }
+  }
+
+  .contentCard-content {
+    line-height: 25px;
+
+    margin-bottom: 29px;
+    max-width: 400px;
+
+    grid-row: 2 e("/") 3;
+    justify-self: center;
+
+    @media screen and (min-width: @large-breakpoint) {
+      justify-self: left;
+    }
+  }
+
+  .contentCard-cta {
+    border-radius: 10px;
+
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    display: inline-block;
+    padding: 20px;
+
+    align-self: center;
+    justify-self: center;
+
+    grid-row: 3 e("/") 4;
+
+    background-color: white;
+    color: @dark-grey;
+
+    &:hover,
+    &:active {
+      background-color: @secondary-color;
+      color: white;
+    }
+
+    @media screen and (min-width: @large-breakpoint) {
+      margin-bottom: 145px;
+      justify-self: left;
+    }
+  }
+
+  .servicePages {
+    @media screen and (min-width: @large-breakpoint) {
+      position: relative;
+
+      &:before {
+        content: "";
+
+        display: block;
+        height: 605px;
+        width: 1005px;
+
+        position: absolute;
+        grid-column: 2 e("/") 3;
+        top: -500px;
+        left: -120px;
+        z-index: -1;
+
+        background: url("../assets/teardrop.png") no-repeat left top;
+      }
+    }
+  }
+
+  .companyTraits {
+    position: relative;
+
+    @media screen and (min-width: @large-breakpoint) {
+      &:before {
+        content: "";
+
+        display: block;
+        height: 605px;
+        width: 1005px;
+
+        position: absolute;
+        grid-column: 2 e("/") 3;
+        bottom: -350px;
+        right: -120px;
+        z-index: -1;
+
+        background: url("../assets/teardrop-180-deg.svg") no-repeat right bottom;
+      }
+    }
+  }
 }
