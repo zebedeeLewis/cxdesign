@@ -1,0 +1,67 @@
+@import "../../shared/styles/variables.less";
+@import "../../shared/styles/mixins.less";
+
+.locationLinks {
+  container-type: inline-size;
+  container-name: location-links;
+
+  &-item {
+    display: flex;
+
+    margin-bottom: 48px;
+
+    flex-direction: column;
+    align-items: center;
+
+    &:before {
+      content: "";
+
+      display: block;
+      width: 202px;
+      margin-bottom: 54px;
+      aspect-ratio: 1 e("/") 1;
+
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-image: var(--image);
+    }
+  }
+
+  &-title {
+    font-size: 20px;
+    letter-spacing: 5px;
+    line-height: 26px;
+    text-transform: uppercase;
+
+    margin-bottom: 38px;
+  }
+
+  &-link {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    padding: 20px;
+
+    border-radius: 12px;
+    color: white;
+    background-color: @primary-color;
+
+    &:hover,
+    &:active {
+      background-color: @secondary-color;
+    }
+  }
+}
+
+@container location-links (width >= @large-breakpoint) {
+  .locationLinks {
+    &-list {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+}
