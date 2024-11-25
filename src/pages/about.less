@@ -1,4 +1,85 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../shared/styles/variables.less";
+@import "../shared/styles/mixins.less";
 
 .about-page {
+  .background {
+  }
+
+  .flexiCard {
+    &:after {
+      background-image: url('../assets/Oval.png');
+      background-repeat: no-repeat;
+    }
+  }
+
+  @media screen and (max-width: @medium-breakpoint - 1) {
+    .flexiCard--header {
+      margin-bottom: 0;
+    }
+  }
+
+  @media screen and (min-width: @medium-breakpoint) {
+    .flexiCard--header {
+      &:after {
+        background-image: url('../assets/oval-large-1.svg');
+        background-repeat: no-repeat;
+        background-position: top 120% left 20%;
+      }
+    }
+  }
+
+  @media screen and (min-width: @large-breakpoint) {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    > * {
+      grid-column: 1 e("/") 13;
+    }
+
+    .flexiCard--header {
+      &:after {
+        background-image: url('../assets/oval-large-1.svg');
+        background-repeat: no-repeat;
+        background-position: top left;
+      }
+    }
+
+    position: relative;
+
+    &:before {
+      content: "";
+
+      display: block;
+      height: 605px;
+      width: 1005px;
+
+      position: absolute;
+      grid-column: 2 e("/") -2;
+      top: 500px;
+      left: -100px;
+      z-index: -1;
+
+      background: url("../assets/teardrop.png") no-repeat left top;
+    }
+
+    &:after {
+      content: "";
+
+      display: block;
+      height: 605px;
+      width: 1005px;
+
+      position: absolute;
+      grid-column: 2 e("/") -2;
+      bottom: 1100px;
+      right: -100px;
+      z-index: -1;
+
+      background: url("../assets/teardrop-180-deg.svg") no-repeat left top;
+    }
+  }
+
+  .companyTraits {
+    .pageContainer--v1();
+  }
 }
