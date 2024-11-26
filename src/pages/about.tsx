@@ -1,3 +1,4 @@
+import {FunctionComponent} from 'react'
 import Layout from '../layout/primary'
 import {FlexiCard} from '../components/flexi-card'
 import { LocationLinks } from '../components/location-links'
@@ -8,7 +9,7 @@ import realDealImage from '../assets/real-deal-card-image.jpg'
 
 import './about.less'
 
-const About = () =>
+const About:FunctionComponent = () =>
   <Layout pageName="about-page">
     <FlexiCard
       as="header"
@@ -30,7 +31,7 @@ const About = () =>
       image={talentImage}
       className="flexiCard--secondary"
     >
-      <h1 className="flexiCard-heading">World-class talent</h1>
+      <h2 className="flexiCard-heading">World-class talent</h2>
       <p className="flexiCard-body">
         We are a crew of strategists, problem-solvers, and
         technologists. Every design is thoughtfully crafted from concept
@@ -44,15 +45,13 @@ const About = () =>
         outcomes that encapsulates their brand’s story and mission.
       </p>
     </FlexiCard>
-    <section className="companyTraits">
-      <LocationLinks />
-    </section>
+    <LocationLinks />
     <FlexiCard
       as="section"
       image={realDealImage}
       className="flexiCard--secondary flexiCard--imageRight"
     >
-      <h1 className="flexiCard-heading">The real deal</h1>
+      <h2 className="flexiCard-heading">The real deal</h2>
       <p className="flexiCard-body">
         As strategic partners in our clients’ businesses, we are ready
         to take on any challenge as our own. Solving real problems
