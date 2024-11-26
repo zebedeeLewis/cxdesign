@@ -19,7 +19,7 @@ type Tag = Extract<keyof JSX.IntrinsicElements
 
 interface FlexiCardProps extends PropsWithChildren
   { as?: Tag
-  ; image: string
+  ; image?: string
   ; className?: string
   ; }
 
@@ -34,7 +34,7 @@ const bgColor = (c:CardCSS, s:string): CardCSS => (
   , })
 
 export const FlexiCard:FunctionComponent<FlexiCardProps>
-= ({as: As = 'div', children, image, className}) =>
+= ({as: As='div', image: image='', children, className}) =>
   <As
     className={`flexiCard ${className||""}`}
     style={bgImg({}, image)}
