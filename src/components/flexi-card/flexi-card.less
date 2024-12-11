@@ -2,12 +2,13 @@
 @import "../../shared/styles/mixins.less";
 
 .contentBase {
+  justify-self: center;
   grid-column: 2 e("/") 12;
 }
 
 span.flexiCard-verticalSpace {
   display: block;
-  margin-bottom: 39px;
+  margin-bottom: 37px;
 }
 
 .flexiCard {
@@ -45,21 +46,22 @@ span.flexiCard-verticalSpace {
     line-height: 36px;
     font-weight: 500;
 
-    margin-top: 84px;
-    margin-bottom: 37px;
-    max-width: 572px;
+    padding-top: 84px;
+    padding-bottom: 37px;
 
-    justify-self: center;
     grid-row: 2 e("/") 3;
   }
 
   &-body:extend(.contentBase all) {
-    margin-bottom: 87px;
-    // max-width: 450px;
-    max-width: 572px;
+    padding-bottom: 37px;
 
-    justify-self: center;
     grid-row: 3 e("/") 4;
+  }
+
+  &-form:extend(.contentBase all) {
+    width: 100%;
+
+    grid-row: 4 e("/") 5;
   }
 
   &:after {
@@ -70,6 +72,10 @@ span.flexiCard-verticalSpace {
     z-index: -1;
 
     background-color: @primary-color;
+  }
+
+  &>:last-child {
+    padding-bottom: 87px;
   }
 
   &--secondary {
@@ -84,11 +90,19 @@ span.flexiCard-verticalSpace {
     }
   }
 
+  &--simple {
+    &:before {
+      content: unset;
+    }
+  }
+
   .pageContainer--v1();
 }
 
 @container flexiCard (width >= @medium-breakpoint) {
   .contentBase {
+    padding-inline: 65px;
+
     grid-column: 2 e("/") 12;
   }
 
@@ -98,9 +112,17 @@ span.flexiCard-verticalSpace {
       border-top-right-radius: 15px;
     }
 
+    &-form:extend(.contentBase all){};
+
     &:after:extend(.contentBase all) {
       border-bottom-left-radius: 15px;
       border-bottom-right-radius: 15px;
+    }
+
+    &--simple {
+      &:after {
+        border-radius: 15px;
+      }
     }
   }
 }
@@ -109,8 +131,7 @@ span.flexiCard-verticalSpace {
   .contentBase {
     text-align: left;
 
-    margin-inline: 42px;
-    max-width: 445px;
+    padding-inline: 42px;
 
     justify-self: left;
     grid-column: 6 e("/") -2;
@@ -130,12 +151,23 @@ span.flexiCard-verticalSpace {
 
     &-body:extend(.contentBase all) {}
 
+    &-form:extend(.contentBase all) {
+      padding-top: 37px;
+
+      grid-row: 1 e("/") 6;
+      grid-column: 8 e("/") -2;
+    }
+
     &:after {
       border-top-right-radius: 15px;
       border-bottom-left-radius: 0;
 
       grid-column: 6 e("/") -2;
       grid-row: 1 e("/") 6;
+    }
+
+    &>:last-child {
+      padding-bottom: 37px;
     }
   }
 
@@ -164,4 +196,15 @@ span.flexiCard-verticalSpace {
       border-bottom-left-radius: 15px;
     }
   }
+
+  .flexiCard--simple {
+    &:after {
+      grid-column: 2 e("/") -2;
+      border-radius: 15px;
+    }
+  }
+}
+
+.locationLinks {
+  .pageContainer--v1();
 }

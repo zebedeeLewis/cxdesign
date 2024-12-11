@@ -28,16 +28,11 @@ const bgImg = (c:CardCSS, s:string): CardCSS => (
   , '--image': `url(${s})`
   , })
 
-const bgColor = (c:CardCSS, s:string): CardCSS => (
-  { ...c
-  , '--background-color': s
-  , })
-
 export const FlexiCard:FunctionComponent<FlexiCardProps>
-= ({as: As='div', image: image='', children, className}) =>
+= ({as: As='div', image: image=null, children, className}) =>
   <As
-    className={`flexiCard ${className||""}`}
-    style={bgImg({}, image)}
+    className={`flexiCard ${className||''} ${image?'':'flexiCard--simple'}`}
+    style={image?bgImg({}, image):{}}
   >
     {children}
   </As>
