@@ -1,0 +1,1 @@
+import{j as o,c as t}from"./index-BlOabxa5.js";import{L as a}from"./primary-NtOd2tFA.js";const e=()=>o.jsx(a,{pageName:"location-page",children:"Hello from Location Page!"}),i=t("/location")({component:e});export{i as Route};
