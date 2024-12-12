@@ -2,6 +2,7 @@ import { Link } from '@tanstack/react-router'
 import { PropsWithChildren, FunctionComponent } from 'react'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
+import { Route as contactRoute } from '../routes/cxdesign.contact.lazy'
 
 import oval from '../assets/Oval.png'
 import './primary.less'
@@ -20,7 +21,7 @@ const Layout:FunctionComponent<PropsWithChildren<{pageName:string}>>
           Ready to take it to the next level? Contact us today and
           find out how our expertise can help your business grow
         </p>
-        <Link className="card-callToAction" to="/contact" >
+        <Link className="card-callToAction" to={contactRoute.options.id} >
           get in touch
         </Link>
       </div>

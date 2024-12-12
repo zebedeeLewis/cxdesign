@@ -4,6 +4,7 @@ import { Link } from '@tanstack/react-router'
 import canadaLocationImage from '../../assets/canada-location-image.svg'
 import australiaLocationImage from '../../assets/australia-location-image.svg'
 import unitedKingdomLocationImage from '../../assets/united-kingdom-location-image.svg'
+import { Route as locationRoute } from '../../routes/cxdesign.location.lazy'
 
 import './location-links.less'
 
@@ -28,7 +29,7 @@ export const LocationLinks:FunctionComponent
     , ].map( ({title, image}, k) =>
       <li className="locationLinks-item" key={k} style={imgVar(image)}>
         <span className="locationLinks-title">{title}</span>
-        <Link to="/location" className="locationLinks-link">
+        <Link to={locationRoute.options.id} className="locationLinks-link">
           see location
         </Link>
       </li> )

@@ -6,6 +6,10 @@ import webDesignImage from "../assets/web-design-background.jpg"
 import appDesignImage from "../assets/app-design-background.jpg"
 import graphicDesignImage from "../assets/graphic-design-background.jpg"
 
+import { Route as appDesignRoute } from '../routes/cxdesign.app-design.lazy'
+import { Route as webDesignRoute } from '../routes/cxdesign.web-design.lazy'
+import { Route as graphicDesignRoute } from '../routes/cxdesign.graphic-design.lazy'
+
 import './_service-page-content.less'
 
 export interface PageContent
@@ -30,17 +34,17 @@ export const ServicePageContent:FunctionComponent<{content:PageContent}>
   <section className="servicePages">
     <ServiceList services={
       [ { pageName: "appDesign"
-        , pageAddress: "/app-design"
+        , pageAddress: appDesignRoute.options.id
         , image: appDesignImage
         , pageTitle: "app design"
         , }
       , { pageName: "webDesign"
-        , pageAddress: "/web-design"
+        , pageAddress: webDesignRoute.options.id
         , image: webDesignImage
         , pageTitle: "web design"
         , }
       , { pageName: "graphicDesign"
-        , pageAddress: "/graphic-design"
+        , pageAddress: graphicDesignRoute.options.id
         , image: graphicDesignImage
         , pageTitle: "graphic design"
         , }

@@ -8,6 +8,10 @@ import appDesignImage from "../assets/app-design-background.jpg"
 import graphicDesignImage from "../assets/graphic-design-background.jpg"
 import headerImage from "../assets/home-page-header-image.png"
 
+import { Route as appDesignRoute } from '../routes/cxdesign.app-design.lazy'
+import { Route as webDesignRoute } from '../routes/cxdesign.web-design.lazy'
+import { Route as graphicDesignRoute } from '../routes/cxdesign.graphic-design.lazy'
+
 import './index.less'
 
 interface MyCSS extends CSSProperties {
@@ -36,17 +40,17 @@ const Index = () =>
   <section className="servicePages">
     <ServiceList services={
       [ { pageName: "webDesign"
-        , pageAddress: "/web-design"
+        , pageAddress: webDesignRoute.options.id
         , image: webDesignImage
         , pageTitle: "web design"
         , }
       , { pageName: "appDesign"
-        , pageAddress: "/app-design"
+        , pageAddress: appDesignRoute.options.id
         , image: appDesignImage
         , pageTitle: "app design"
         , }
       , { pageName: "graphicDesign"
-        , pageAddress: "/graphic-design"
+        , pageAddress: graphicDesignRoute.options.id
         , image: graphicDesignImage
         , pageTitle: "graphic design"
         , }

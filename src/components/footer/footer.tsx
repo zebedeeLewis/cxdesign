@@ -5,6 +5,10 @@ import youtubeIcon from '../../assets/youtube.svg'
 import twitterIcon from '../../assets/twitter.svg'
 import pinterestIcon from '../../assets/pinterest.svg'
 import instagramIcon from '../../assets/instagram.svg'
+import { Route as aboutRoute } from '../../routes/cxdesign.about.lazy'
+import { Route as locationRoute } from '../../routes/cxdesign.location.lazy'
+import { Route as contactRoute } from '../../routes/cxdesign.contact.lazy'
+import { Route as indexRoute } from '../../routes/cxdesign.index.lazy'
 
 import './footer.less'
 
@@ -19,12 +23,12 @@ export default function Footer() {
   return (
     <footer className="footer">
       <nav className="footer-nav">
-        <Link className="footer-logo" to="/">
+        <Link className="footer-logo" to={indexRoute.options.id}>
           <img src={logoDark} alt={footerLogoAlt} loading="lazy" />
         </Link>
-        <Link to="/about" className="footer-nav-link">Our Company</Link>
-        <Link to="/location" className="footer-nav-link">Locations</Link>
-        <Link to="/contact" className="footer-nav-link">Contact</Link>
+        <Link to={aboutRoute.options.id} className="footer-nav-link">Our Company</Link>
+        <Link to={locationRoute.options.id} className="footer-nav-link">Locations</Link>
+        <Link to={contactRoute.options.id} className="footer-nav-link">Contact</Link>
       </nav>
       <address className="footer-address footer-address--1">
         Designo Central Office<br/>

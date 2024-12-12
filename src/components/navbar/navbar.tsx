@@ -4,6 +4,10 @@ import './navbar.less'
 import logo from '../../assets/logo.png'
 import collapsedSymbol from '../../assets/hamburger.svg'
 import close from '../../assets/close.svg'
+import { Route as aboutRoute } from '../../routes/cxdesign.about.lazy'
+import { Route as locationRoute } from '../../routes/cxdesign.location.lazy'
+import { Route as contactRoute } from '../../routes/cxdesign.contact.lazy'
+import { Route as indexRoute } from '../../routes/cxdesign.index.lazy'
 
 type navListState 
   = "Hidden"
@@ -47,18 +51,24 @@ export default function Navbar() {
 
       <ul className="navList">
         <li className="navList-item-logo">
-          <Link className="navList-link-logo" to="/">
+          <Link className="navList-link-logo" to={indexRoute.options.id}>
             <img src={logo} alt={navListLogoAlt} loading="lazy" />
           </Link>
         </li>
         <li className="navList-item-first">
-          <Link className="navList-link" to="/about">Our Company</Link>
+          <Link className="navList-link" to={aboutRoute.options.id}>
+            Our Company
+          </Link>
         </li>
         <li className="navList-item">
-          <Link className="navList-link" to="/location">Locations</Link>
+          <Link className="navList-link" to={locationRoute.options.id}>
+            Locations
+          </Link>
         </li>
         <li className="navList-item">
-          <Link className="navList-link" to="/contact">Contact</Link>
+          <Link className="navList-link" to={contactRoute.options.id}>
+            Contact
+          </Link>
         </li>
       </ul>
     </nav>
