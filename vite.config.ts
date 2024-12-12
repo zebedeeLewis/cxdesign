@@ -6,6 +6,7 @@ import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin';
 
 export default defineConfig({
   root: __dirname,
+  base: '/cxdesign',
   cacheDir: './node_modules/.vite/designio',
   server: {
     port: 4200,
